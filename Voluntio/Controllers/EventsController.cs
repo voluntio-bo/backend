@@ -50,5 +50,21 @@ namespace Voluntio.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Lo sentimos, algo sucedió.");
             }
         }
+        [HttpPost]
+        public async Task<ActionResult<EventModel>> PostEvent([FromBody] EventModel eventModel)
+        {
+            try
+            {
+                if(!ModelState.IsValid)
+                    return BadRequest(ModelState);
+                var newEvent = await _eventService.CreateEventAsync(eventModel);
+                return Created($"api/events/{newEvent.Id}", newEvent);
+
+            }
+            catch(NotFoundElementException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
     }
 }

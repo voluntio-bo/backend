@@ -6,5 +6,6 @@ namespace Voluntio.Services
     {
         Task<IEnumerable<EventModel>> GetEventsAsync();
         Task<EventModel> GetEventAsync(int EventId);
+        Task<EventModel> CreateEventAsync(EventModel model);
     }
 }
