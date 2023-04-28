@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Voluntio.Data.Entity;
 using Voluntio.Data.Repository;
 using Voluntio.Exceptions;
 using Voluntio.Models;
@@ -34,6 +36,19 @@ namespace Voluntio.Services
             var eventEnumerable = _mapper.Map<EventModel>(eventT);
             return eventEnumerable;
         }
+
+        public async Task<EventModel> CreateEventAsync(EventModel model)
+        {
+            var eventEntity = _mapper.Map<EventEntity>(model);
+            _EventRepository.CreateEvent(eventEntity);
+            var result = await _EventRepository.SaveChangesAsync();
+            if (result)
+            {
+                return _mapper.Map<EventModel>(model);
+            }
+            throw new Exception("Database Error");
+        }
+        
 
     }
 }

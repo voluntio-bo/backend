@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Voluntio.Data.Entity;
+using Voluntio.Models;
 
 namespace Voluntio.Data.Repository
 {
@@ -26,6 +27,25 @@ namespace Voluntio.Data.Repository
             var eventT = await query.FirstOrDefaultAsync(g => (g.Id == eventId));
             return eventT;
         }
+        public void CreateEvent(EventEntity eventEntity)
+        {
+            _dbContext.Events.Add(eventEntity);
+     
+        }
+        public async Task<bool> SaveChangesAsync()
+        {
+            try
+            {
+                var result = await _dbContext.SaveChangesAsync();
+                return result > 0 ? true : false;
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        
     }
 }

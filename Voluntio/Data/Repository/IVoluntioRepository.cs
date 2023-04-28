@@ -6,5 +6,7 @@ namespace Voluntio.Data.Repository
     {
         Task<IEnumerable<EventEntity>> GetEventsAsync();
         Task<EventEntity> GetEventAsync(int eventId);
+        void CreateEvent(EventEntity entity);
+        Task<bool> SaveChangesAsync();
     }
 }
