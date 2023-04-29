@@ -10,6 +10,7 @@
         public string? StartTime { get; set; }
         public string? EndTime { get; set; }
         public string? ImagePath { get; set; }
+        public int OrganizationId { get; set; }
 
     }
 }

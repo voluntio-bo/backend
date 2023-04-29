@@ -29,6 +29,7 @@ namespace Voluntio.Data.Repository
         }
         public void CreateEvent(EventEntity eventEntity)
         {
+            _dbContext.Entry(eventEntity.Organization).State = EntityState.Unchanged;
             _dbContext.Events.Add(eventEntity);
      
         }
@@ -46,6 +47,26 @@ namespace Voluntio.Data.Repository
             }
         }
 
-        
+        public async Task<IEnumerable<OrganizationEntity>> GetOrganizationsAsync()
+        {
+            IQueryable<OrganizationEntity> query = _dbContext.Organizations;
+            query = query.AsNoTracking();
+            var result = await query.ToListAsync();
+            return result;
+
+        }
+
+        public async Task<OrganizationEntity> GetOrganization(int organizationId)
+        {
+            IQueryable<OrganizationEntity> query = _dbContext.Organizations;
+            query = query.AsNoTracking();
+            var result = await query.FirstOrDefaultAsync(o=> o.Id==organizationId);
+            return result;
+        }
+
+        public void CreateOrganization(OrganizationEntity organization)
+        {
+            _dbContext.Organizations.Add(organization);
+        }
     }
 }

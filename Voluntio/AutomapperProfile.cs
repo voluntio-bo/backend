@@ -9,7 +9,9 @@ namespace Voluntio
         public AutomapperProfile()
         {
             this.CreateMap<EventEntity, EventModel>()
-                .ReverseMap();                
+                .ForMember(mod => mod.OrganizationId, ent => ent.MapFrom(entSrc => entSrc.Organization.Id))
+                .ReverseMap()
+                .ForMember(ent => ent.Organization, mod => mod.MapFrom(modSrc => new OrganizationEntity() { Id = modSrc.OrganizationId }));
         }
     }
 }

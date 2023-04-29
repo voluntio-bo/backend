@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Voluntio.Data.Entity
 {
@@ -14,5 +15,7 @@ namespace Voluntio.Data.Entity
         public string? StartTime { get; set; }
         public string? EndTime { get; set; }
         public string? ImagePath { get; set; }
+        [ForeignKey("OrganizationId")]
+        public virtual OrganizationEntity Organization { get; set;}
     }
 }
