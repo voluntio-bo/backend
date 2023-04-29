@@ -10,9 +10,11 @@ namespace Voluntio.Controllers
     public class EventsController : Controller
     {
         private IEventService _eventService;
-        public EventsController(IEventService eventService)
+        private IFileService _fileService;
+        public EventsController(IEventService eventService, IFileService fileService)
         {
             _eventService = eventService;
+            _fileService = fileService;
         }
 
         [HttpGet]
@@ -64,6 +66,46 @@ namespace Voluntio.Controllers
             catch(NotFoundElementException ex)
             {
                 return NotFound(ex.Message);
+            }
+        }
+
+        [HttpPost("Form")]
+        public async Task<ActionResult<EventModel>> CreateEventFormAsync([FromForm] EventFormModel eventT)
+        {
+            try
+            {
+                var d = DateTime.UtcNow;
+                //qr.DonationPostId = donationPostId;
+                //[TO DO] Find a way to validate a model FromForm
+                //if (!ModelState.IsValid)
+                //return BadRequest(ModelState);
+                // var qrModel = qr;
+                string imagePath = null;
+                var file = eventT.Image;
+                if (file != null)
+                {
+                    imagePath = await _fileService.UploadFile(file);
+                }
+
+
+                eventT.ImagePath = imagePath;
+
+                var eventCreated = await _eventService.CreateEventAsync(eventT);
+                var id = eventCreated.Id;
+                return Created($"/api/[controller]/{id}", eventT);//new BookModel() { Id = newBook.Id, Title = newBook.Title, Author = newBook.Author, Genre = newBook.Genre, ImagePath = newBook.ImagePath });
+                //return a;
+            }
+            catch (NotFoundElementException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (InvalidImageException e)
+            {
+                return BadRequest(e.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Something happened.");
             }
         }
     }
