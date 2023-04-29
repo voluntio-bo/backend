@@ -11,6 +11,7 @@
         public string? EndTime { get; set; }
         public string? ImagePath { get; set; }
         public int OrganizationId { get; set; }
+        public IEnumerable<UserModel> Users { get; set; }
 
     }
 }

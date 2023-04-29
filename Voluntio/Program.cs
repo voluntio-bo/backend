@@ -12,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<IEventService, EventService>();
 builder.Services.AddTransient<IOrganizationService, OrganizationService>();
 builder.Services.AddTransient<IVoluntioRepository, VoluntioRepository>();
+builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped(_ => {
     return new BlobServiceClient(builder.Configuration.GetConnectionString("AzureBlobStorage"));
