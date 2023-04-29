@@ -28,6 +28,7 @@ namespace Voluntio.Data.Repository
         {
             IQueryable<EventEntity> query = _dbContext.Events;
             query = query.AsNoTracking();
+            query = query.Include(f => f.UserEvents).ThenInclude(ec => ec.User);
             var eventT = await query.FirstOrDefaultAsync(g => (g.Id == eventId));
             return eventT;
         }
@@ -55,6 +56,7 @@ namespace Voluntio.Data.Repository
         {
             IQueryable<UserEntity> query = _dbContext.Users;
             query = query.AsNoTracking();
+            query = query.Include(f => f.UserEvents).ThenInclude(ec => ec.EventT);
             var userT = await query.FirstOrDefaultAsync(g => (g.Id == userId));
             return userT;
         }
@@ -71,6 +73,7 @@ namespace Voluntio.Data.Repository
         {
             IQueryable<OrganizationEntity> query = _dbContext.Organizations;
             query = query.AsNoTracking();
+            query = query.Include(f => f.Events);
             var result = await query.FirstOrDefaultAsync(o=> o.Id==organizationId);
             return result;
         }
