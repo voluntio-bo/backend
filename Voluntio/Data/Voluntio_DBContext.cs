@@ -9,6 +9,7 @@ namespace Voluntio.Data
         public DbSet<EventEntity> Events => Set<EventEntity>();
         public DbSet<OrganizationEntity> Organizations => Set<OrganizationEntity>();
         public DbSet<UserEntity> Users => Set<UserEntity>();
+        public DbSet<UserEventEntity> UserEvents => Set<UserEventEntity>();
         public Voluntio_DBContext(DbContextOptions<Voluntio_DBContext> options) : base(options)
         {
 
@@ -36,6 +37,7 @@ namespace Voluntio.Data
             modelBuilder.Entity<UserEntity>().Property(d => d.Id).ValueGeneratedOnAdd();
 
             //UserEvent
+            //modelBuilder.Entity<UserEventEntity>().ToTable("UserEvent");
             modelBuilder.Entity<UserEventEntity>().HasKey(eu => new { eu.EventId, eu.UserId });
             modelBuilder.Entity<UserEventEntity>()
                 .HasOne(ec => ec.User)

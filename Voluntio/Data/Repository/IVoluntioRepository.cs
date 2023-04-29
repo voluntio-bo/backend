@@ -16,5 +16,8 @@ namespace Voluntio.Data.Repository
 
         //USERS
         Task<UserEntity> GetUserAsync(int userId);
+        void CreateUser(UserEntity user);
+        //UserEvent
+        void InscribeToEventAsync(UserEventEntity userEvent);
     }
 }

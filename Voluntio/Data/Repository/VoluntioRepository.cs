@@ -79,5 +79,15 @@ namespace Voluntio.Data.Repository
         {
             _dbContext.Organizations.Add(organization);
         }
+
+        public void InscribeToEventAsync(UserEventEntity userEvent)
+        {
+            _dbContext.UserEvents.Add(userEvent);
+        }
+
+        public void CreateUser(UserEntity user)
+        {
+            _dbContext.Users.Add(user);
+        }
     }
 }
