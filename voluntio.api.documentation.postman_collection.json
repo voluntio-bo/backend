@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "9940fcb4-ab8a-4626-a06e-427a5dc72928",
+		"name": "voluntio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17260966",
+		"_collection_link": "https://winter-shuttle-289383.postman.co/workspace/Voluntio~bd952f88-ac09-4c0a-8e0d-2998437ae0d8/collection/17260966-9940fcb4-ab8a-4626-a06e-427a5dc72928?action=share&creator=17260966&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "CreateEventImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "eventType",
+									"value": "\"Prueba\"",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "\"Descripcion de prueba\"",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "\"Nombre\"",
+									"type": "text"
+								},
+								{
+									"key": "eventDate",
+									"value": "2022-12-10T20:00:00",
+									"type": "text"
+								},
+								{
+									"key": "startTime",
+									"value": "\"2022-12-10T20:00:00\"",
+									"type": "text"
+								},
+								{
+									"key": "endTime",
+									"value": "\"2022-12-10T20:00:00\"",
+									"type": "text"
+								},
+								{
+									"key": "organizationId",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Kevin/Pictures/Captura de pantalla 2022-05-01 101438.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5251/api/events/Form",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"events",
+								"Form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateEventImage Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"eventType\":\"Prueba\",\r\n    \"description\":\"Description\",\r\n    \"name\":\"Nombre\",\r\n    \"eventDate\":\"2022-05-06T22:00:00\",\r\n    \"startTime\":\"Algo\",\r\n    \"endTime\":\"Algo\",\r\n    \"organizationId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5251/api/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEvents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5251/api/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEvent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5251/api/events/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"events",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "GetOrganization",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5251/api/organizations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"organizations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrganizations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5251/api/organizations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOrganization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Orga 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5251/api/organizations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
