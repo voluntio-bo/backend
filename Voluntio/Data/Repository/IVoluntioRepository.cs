@@ -13,5 +13,11 @@ namespace Voluntio.Data.Repository
         Task<IEnumerable<OrganizationEntity>> GetOrganizationsAsync();
         Task<OrganizationEntity> GetOrganization(int organizationId);
         void CreateOrganization(OrganizationEntity organization);
+
+        //USERS
+        Task<UserEntity> GetUserAsync(int userId);
+        void CreateUser(UserEntity user);
+        //UserEvent
+        void InscribeToEventAsync(UserEventEntity userEvent);
     }
 }

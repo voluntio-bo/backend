@@ -51,6 +51,13 @@ namespace Voluntio.Data.Repository
             }
         }
 
+        public async Task<UserEntity> GetUserAsync(int userId)
+        {
+            IQueryable<UserEntity> query = _dbContext.Users;
+            query = query.AsNoTracking();
+            var userT = await query.FirstOrDefaultAsync(g => (g.Id == userId));
+            return userT;
+        }
         public async Task<IEnumerable<OrganizationEntity>> GetOrganizationsAsync()
         {
             IQueryable<OrganizationEntity> query = _dbContext.Organizations;
@@ -71,6 +78,16 @@ namespace Voluntio.Data.Repository
         public void CreateOrganization(OrganizationEntity organization)
         {
             _dbContext.Organizations.Add(organization);
+        }
+
+        public void InscribeToEventAsync(UserEventEntity userEvent)
+        {
+            _dbContext.UserEvents.Add(userEvent);
+        }
+
+        public void CreateUser(UserEntity user)
+        {
+            _dbContext.Users.Add(user);
         }
     }
 }

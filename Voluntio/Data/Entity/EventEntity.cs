@@ -15,6 +15,7 @@ namespace Voluntio.Data.Entity
         public string? StartTime { get; set; }
         public string? EndTime { get; set; }
         public string? ImagePath { get; set; }
+        public ICollection<UserEventEntity> UserEvents { get; set; }
         public virtual OrganizationEntity Organization { get; set;}
     }
 }

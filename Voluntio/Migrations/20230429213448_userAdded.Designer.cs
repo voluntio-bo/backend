@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Voluntio.Data;
@@ -11,9 +12,11 @@ using Voluntio.Data;
 namespace Voluntio.Migrations
 {
     [DbContext(typeof(Voluntio_DBContext))]
-    partial class Voluntio_DBContextModelSnapshot : ModelSnapshot
+    [Migration("20230429213448_userAdded")]
+    partial class userAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -356,7 +359,7 @@ namespace Voluntio.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserEvents");
+                    b.ToTable("UserEventEntity");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
