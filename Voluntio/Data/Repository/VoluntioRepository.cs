@@ -28,6 +28,7 @@ namespace Voluntio.Data.Repository
         {
             IQueryable<EventEntity> query = _dbContext.Events;
             query = query.AsNoTracking();
+            query = query.Include(f => f.Organization);
             query = query.Include(f => f.UserEvents).ThenInclude(ec => ec.User);
             var eventT = await query.FirstOrDefaultAsync(g => (g.Id == eventId));
             return eventT;
