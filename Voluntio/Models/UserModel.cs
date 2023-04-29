@@ -12,7 +12,7 @@
         public string? Abilities { get; set; }
         public string? Interests { get; set; }
         public DateTime? BirthDate { get; set; }
-        public IEnumerable<EventModel>? EventsT { get; set; }
+        public IEnumerable<EventModel> EventsT { get; set; }
 
     }
 }
