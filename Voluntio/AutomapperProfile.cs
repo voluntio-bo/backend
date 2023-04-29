@@ -8,6 +8,8 @@ namespace Voluntio
     {
         public AutomapperProfile()
         {
+            this.CreateMap<OrganizationEntity, OrganizationModel>()
+                .ReverseMap();
             this.CreateMap<EventEntity, EventModel>()
                 .ForMember(mod => mod.OrganizationId, ent => ent.MapFrom(entSrc => entSrc.Organization.Id))
                 .ReverseMap()

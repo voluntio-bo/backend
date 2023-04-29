@@ -15,7 +15,6 @@ namespace Voluntio.Data.Entity
         public string? StartTime { get; set; }
         public string? EndTime { get; set; }
         public string? ImagePath { get; set; }
-        [ForeignKey("OrganizationId")]
         public virtual OrganizationEntity Organization { get; set;}
     }
 }
