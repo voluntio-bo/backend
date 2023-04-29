@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "2bdde849-0979-4f00-87a5-fb79e8d2665b",
+		"name": "voluntio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17260997"
+	},
+	"item": [
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "CreateEventImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "eventType",
+									"value": "Ecológicos",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": " Este evento de voluntariado se centrará en la limpieza de un parque o área verde local que necesita ser restaurada debido a la contaminación y los residuos. Los voluntarios trabajarán para restaurar el entorno natural y promover prácticas ecológicas para proteger el medio ambiente.",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Unidos por el planeta - Pairumani",
+									"type": "text"
+								},
+								{
+									"key": "eventDate",
+									"value": "2023-05-26T10:00:00",
+									"type": "text"
+								},
+								{
+									"key": "startTime",
+									"value": "\"2023-05-26T10:00:00\"",
+									"type": "text"
+								},
+								{
+									"key": "endTime",
+									"value": "\"2023-05-26T14:00:00\"",
+									"type": "text"
+								},
+								{
+									"key": "organizationId",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Camil/Downloads/17493048_1443233682374539_2032888005991328163_o.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5251/api/events/Form",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"events",
+								"Form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateEventNoImage",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"eventType\":\"Prueba\",\r\n    \"description\":\"Description\",\r\n    \"name\":\"Nombre\",\r\n    \"eventDate\":\"2022-05-06T22:00:00\",\r\n    \"startTime\":\"Algo\",\r\n    \"endTime\":\"Algo\",\r\n    \"organizationId\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5251/api/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEvents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5251/api/events",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEvent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5251/api/events/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"events",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "GetOrganization",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5251/api/organizations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"organizations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetOrganizations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5251/api/organizations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateOrganization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "ADASEC Bolivia",
+									"type": "text"
+								},
+								{
+									"key": "UserName",
+									"value": "@adasec_Bolivia",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "¿Quiénes somos? Somos filial en Bolivia de la ONG con presencia en más de 50 países FIADASEC, miembro de la ONU. FIADASEC es la Federación Internacional de Asociaciones de Ayuda Social, Ecológica y Cultural que agrupa a asociaciones de diversos países a escala mundial, cuyo objetivo es elevar el nivel de conciencia de las personas desde una educación social, ecológica y cultural.",
+									"type": "text"
+								},
+								{
+									"key": "Mission",
+									"value": "Ser instrumento para el desarrollo integral del ser humano, propiciando que afloren sus valores positivos y se pongan en práctica al servicio de la humanidad y el planeta, mediante el conocimiento objetivo de Dios y del alma, a través del Método DESOTO, en todas nuestras filiales a nivel mundial.",
+									"type": "text"
+								},
+								{
+									"key": "Vision",
+									"value": "Ser la institución modelo a nivel mundial, en la formación de seres humanos conscientes, capaces de alcanzar la paz interior y la armonía, siendo la Organización de preferencia en la formación espiritual y en valores.",
+									"type": "text"
+								},
+								{
+									"key": "CoverImage",
+									"type": "file",
+									"src": "/C:/Users/Camil/Downloads/portada.png"
+								},
+								{
+									"key": "ProfileImage",
+									"type": "file",
+									"src": "/C:/Users/Camil/Downloads/perfil.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5251/api/organizations/form",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5251",
+							"path": [
+								"api",
+								"organizations",
+								"form"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
