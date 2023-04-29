@@ -1,3 +1,4 @@
+using Azure.Storage.Blobs;
 using Microsoft.EntityFrameworkCore;
 using Voluntio.Data;
 using Voluntio.Data.Repository;
@@ -10,6 +11,10 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 builder.Services.AddTransient<IEventService, EventService>();
 builder.Services.AddTransient<IVoluntioRepository, VoluntioRepository>();
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped(_ => {
+    return new BlobServiceClient(builder.Configuration.GetConnectionString("AzureBlobStorage"));
+});
 
 //entity framework config
 var connectionString = builder.Configuration.GetConnectionString("VoluntioDB");
