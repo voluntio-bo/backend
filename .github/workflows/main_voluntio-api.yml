@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'voluntio-api'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E32BAB2272C54ACF95427D64BE3DBE7F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B458A8D4DF8846D1BDBB4EF7153B3846 }}
           package: .
