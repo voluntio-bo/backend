@@ -15,7 +15,7 @@
         public string? OrganizationUserName { get; set; }
         public string? OrganizationCoverImagePath { get; set; }
         public string? OrganizationProfileImagePath { get; set; }
-        public IEnumerable<UserModel> Users { get; set; }
+        public IEnumerable<UserModel>? Users { get; set; }
 
     }
 }
